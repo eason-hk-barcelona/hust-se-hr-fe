@@ -2,23 +2,21 @@
   <a-result
     status="403"
     :subtitle="$t('noPermission.subtitle')"
-    class="h-screen flex flex-col justify-center"
+    class="h-screen flex flex-col justify-center pb-40"
   >
-    <template #extra>
-      <a-space>
-        <a-button type="primary" @click="returnLogin">{{
-          $t('noPermission.back')
-        }}</a-button>
-      </a-space>
+    <template #icon>
+      <NoPermissionSVG class="max-w-[min(404px,90%)]" />
     </template>
   </a-result>
 </template>
 
 <script setup lang="ts">
-import useUserStore from '@/store/modules/user';
-
-const userStore = useUserStore();
-const { returnLogin } = userStore;
+import NoPermissionSVG from '@/assets/svg/no-permission.svg';
 </script>
 
-<style scoped lang="less"></style>
+<style scoped lang="less">
+:deep(.arco-result-icon-tip) {
+  width: auto;
+  height: auto;
+}
+</style>

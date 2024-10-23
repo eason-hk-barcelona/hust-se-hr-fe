@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const path = require('path');
 
 module.exports = {
@@ -30,11 +31,13 @@ module.exports = {
   ],
   rules: {
     'prettier/prettier': 1,
+    'no-console': 1,
     // vue的一些覆盖配置
     'vue/require-default-prop': 0,
     'vue/singleline-html-element-content-newline': 0,
     'vue/max-attributes-per-line': 0,
     'vue/multi-word-component-names': 0,
+    'vue/no-useless-template-attributes': 0,
     // vue的一些额外配置
     'vue/custom-event-name-casing': [2, 'camelCase'],
     'vue/no-v-text': 1,
@@ -49,6 +52,8 @@ module.exports = {
     // 避免enum的循环引用
     'no-shadow': 0,
     '@typescript-eslint/no-shadow': 2,
+    // 临时解决 defindModel问题
+    'no-undef': 0,
     // import的一些配置
     'import/extensions': [
       2,
@@ -65,7 +70,9 @@ module.exports = {
     // 生产环境需要启用
     'no-debugger': 0,
     'no-param-reassign': 0,
+    'no-nested-ternary': 'off',
     'prefer-regex-literals': 0,
+    'camelcase': 0,
   },
   // 用来解析@
   settings: {

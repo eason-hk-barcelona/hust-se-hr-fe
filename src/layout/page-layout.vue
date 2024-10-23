@@ -1,6 +1,10 @@
 <template>
   <router-view v-slot="{ Component, route }">
-    <component :is="Component" :key="route.fullPath" />
+    <div class="p-5 h-full max-h-full relative">
+      <keep-alive exclude="detail">
+        <component :is="Component" :key="route.fullPath" />
+      </keep-alive>
+    </div>
   </router-view>
 </template>
 

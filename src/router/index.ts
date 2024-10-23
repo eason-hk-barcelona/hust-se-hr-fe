@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import { NO_PERMISSION } from './routes/base';
+// import DETAIL from './routes/candidate';
 import { appRoutes } from './routes';
 import createRouteGuard from './guard';
 
@@ -8,18 +9,12 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      redirect: 'login',
-    },
-    {
-      path: '/login',
-      name: 'login',
-      component: () => import('@/views/login/index.vue'),
-      meta: {
-        requiresAuth: false,
-      },
+      // 暂时重定向到总览
+      redirect: '/overview/apply-info',
     },
     ...appRoutes,
     NO_PERMISSION,
+    // DETAIL,
   ],
   scrollBehavior() {
     return { top: 0 };
