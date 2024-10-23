@@ -22,3 +22,12 @@ const locale = computed(() => {
   }
 });
 </script>
+
+<style lang="less">
+body {
+  font-size: 16px;
+  .arco-modal {
+    width: min(90%, 520px);
+  }
+}
+</style>
