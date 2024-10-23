@@ -1,4 +1,4 @@
-# 联创团队SSO系统-前端
+# HR系统-前端
 
 ## 🚀技术栈
 
@@ -9,7 +9,7 @@ arcodesign + tailwindcss
 
 ## ✨features
 
-- 使用`vue-i18n`支持多语言。
+- 使用 `vue-i18n`支持多语言。
 - 支持夜间模式。
 
 ## 开发指南
