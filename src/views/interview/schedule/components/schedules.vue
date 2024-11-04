@@ -6,7 +6,7 @@
       }}</span>
       <a-dropdown>
         <div class="cursor-pointer text-[--color-text-1] text-base">
-          <span class="mr-1"> {{ currentGroup }} </span>
+          <span class="mr-1"> {{ groupMap(currentGroup) }} </span>
           <icon-down />
         </div>
         <template #content>
@@ -15,7 +15,7 @@
             :key="item"
             @click="handleGroupClick(item)"
           >
-            {{ item }}
+            {{ groupMap(item) }}
           </a-doption>
         </template>
       </a-dropdown>
@@ -79,6 +79,7 @@ import router from '@/router';
 import { Group } from '@/constants/team';
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { groupMap } from '@/utils';
 
 interface CandidateInfo {
   name: string;

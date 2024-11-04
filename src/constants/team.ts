@@ -31,24 +31,24 @@ export enum InterviewType {
 }
 
 export enum Group {
-  Web = 'web',
-  Lab = 'lab',
-  AI = 'ai',
-  Game = 'game',
-  Mobile = 'mobile',
-  Design = 'design',
-  PM = 'pm',
+  开发 = 'web',
+  运营 = 'lab',
+  算法 = 'ai',
+  游戏 = 'game',
+  客户端 = 'mobile',
+  设计 = 'design',
+  产品 = 'pm',
   Unique = 'unique', // for team interview
 }
 
 export const groupMapping = {
-  PM: Group.PM,
-  Design: Group.Design,
-  AI: Group.AI,
-  Mobile: Group.Mobile,
-  Web: Group.Web,
-  Lab: Group.Lab,
-  Game: Group.Game,
+  PM: Group.产品,
+  Design: Group.设计,
+  AI: Group.算法,
+  Mobile: Group.客户端,
+  Web: Group.开发,
+  Lab: Group.运营,
+  Game: Group.游戏,
 };
 
 export enum Evaluation {

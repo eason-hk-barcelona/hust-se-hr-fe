@@ -65,7 +65,7 @@ const visible = defineModel<boolean>('visible', {
 const props = defineProps({
   currentGroupStart: {
     type: String as PropType<Group>,
-    default: Group.Web,
+    default: Group.开发,
     required: true,
   },
 });

@@ -31,7 +31,7 @@
               class="w-10 h-10 text-xl rounded-full p-2.5 bg-[rgb(var(--arcoblue-1))] text-[rgb(var(--arcoblue-6))] float-left mr-2.5"
             />
             <span class="float-left text-[--color-text-1]">{{
-              info.name
+              groupMap(info.name)
             }}</span>
           </div>
           <!-- 组别 -->
@@ -108,9 +108,10 @@ import { deleteInterview } from '@/api';
 import { Message } from '@arco-design/web-vue';
 import { useI18n } from 'vue-i18n';
 import dayjs from 'dayjs';
+import { groupMap } from '@/utils';
 import AddDateModal from './add-date-modal.vue';
 
-const currentGroup = ref(Group.Web);
+const currentGroup = ref(Group.开发);
 const showAddDate = ref(false);
 const showComfirmDelete = ref(false);
 const delInterviewId = ref('');

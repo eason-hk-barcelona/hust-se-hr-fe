@@ -1,6 +1,6 @@
 export default {
   'sms.interview':
-    '{name}你好，请于{example_time}在启明学院亮胜楼{place}参加{next}，请准时到场。',
+    '{name}你好，请于{example_time}在华中科技大学{place}参加{next}，请准时到场。',
   'sms.onlineInterview':
     '{name}你好，欢迎参加{recruitment_name} {group}组{online_interview_type}，面试将于{example_time}进行，请在PC端点击腾讯会议参加面试，会议号{meeting_id}，并提前调试好摄像头和麦克风，祝你面试顺利.',
   'sms.base':
