@@ -189,7 +189,7 @@ const { t } = useI18n();
 const { widthType, heightType } = useWindowResize();
 
 const interviewType = ref(InterviewType.Group);
-const currentGroup = ref(Group.Web);
+const currentGroup = ref(Group.开发);
 const selectedKeys = ref<string[]>([]);
 watch([interviewType, currentGroup], () => {
   selectedKeys.value.length = 0;

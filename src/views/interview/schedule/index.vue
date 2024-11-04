@@ -23,6 +23,7 @@ import { ref, computed, provide } from 'vue';
 import { Group, recruitSteps } from '@/constants/team';
 import useRecruitmentStore from '@/store/modules/recruitment';
 import dayjs from 'dayjs';
+import { groupMap } from '@/utils';
 import calender from './components/calendar.vue';
 import schedules from './components/schedules.vue';
 
@@ -63,7 +64,8 @@ const props = defineProps({
 });
 
 provide('formatToday', formatToday);
-const currentGroup = ref(Group.Web);
+
+const currentGroup = ref(Group.开发);
 const selectedDate = ref<string>('2024-01-01');
 const recStore = useRecruitmentStore();
 
@@ -89,7 +91,7 @@ const overview = computed(() => {
         : parseDate(app.interview_allocations_team?.start ?? '');
     return {
       step: app.step,
-      group: app.group ?? '',
+      group: groupMap(app.group) ?? '',
       date: interviewDate,
     };
   });
@@ -142,7 +144,7 @@ const candidates = computed(() => {
       return {
         name: app.user_detail?.name ?? '',
         step: app.step ?? recruitSteps[props.curStep].value[0],
-        group: app.group ?? '',
+        group: groupMap(app.group) ?? '',
         interviewPeriod,
         startDate:
           app.step === 'GroupInterview' ? groupStartDate : teamStartDate,

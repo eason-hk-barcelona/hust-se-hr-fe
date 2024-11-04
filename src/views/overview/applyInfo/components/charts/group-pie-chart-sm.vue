@@ -11,6 +11,7 @@ import { onMounted, computed, ref, onUnmounted, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 import type { GroupDetails } from '@/constants/httpMsg/recruitment/getRecruitmentMsg';
 import { groupMapping } from '@/constants/team';
+import { groupMap } from '@/utils';
 
 const { t } = useI18n();
 
@@ -75,7 +76,7 @@ const option = computed(() => {
       {
         type: 'pie',
         data: Object.entries(groupMapping).map(([name, group]) =>
-          createDataObject(group, name),
+          createDataObject(group, groupMap(name.toLowerCase())),
         ),
         label: {
           show: true,

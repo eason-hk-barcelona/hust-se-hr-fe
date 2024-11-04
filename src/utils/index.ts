@@ -60,3 +60,18 @@ export const transformedTime = (start: string, end: string) => {
 
   return `${startHours}:${startMinutes}-${endHours}:${endMinutes}`;
 };
+
+const groupNameMap: Record<string, string> = {
+  web: '开发',
+  lab: '运营',
+  ai: '算法',
+  game: '游戏',
+  mobile: '客户端',
+  design: '设计',
+  pm: '产品',
+  unique: 'Unique',
+};
+
+export const groupMap = (groupCode: string): string => {
+  return groupNameMap[groupCode] || groupCode; // 如果找不到映射就返回原值
+};

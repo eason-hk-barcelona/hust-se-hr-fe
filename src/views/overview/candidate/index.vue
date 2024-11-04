@@ -63,7 +63,7 @@ import candidateInfo from './components/candidate-info.vue';
 const recStore = useRecruitmentStore();
 
 const currentStep = ref(1);
-const currentGroup = ref(Group.Web);
+const currentGroup = ref(Group.开发);
 const stepCnt = computed(() =>
   recruitSteps.map(
     ({ value }) =>

@@ -106,7 +106,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import useRecruitmentStore from '@/store/modules/recruitment';
-import { getToday, transformedTime } from '@/utils';
+import { getToday, groupMap, transformedTime } from '@/utils';
 import { Schedule } from '../type';
 
 const visible = ref(false);
@@ -124,7 +124,7 @@ const schedules = computed<Schedule[]>(() => {
   recStore.curApplications.forEach((e) => {
     const groupObj = {
       date: new Date(e.interview_allocations_group?.date as string),
-      name: `${e.group}组面(${e.user_detail?.name})`,
+      name: `${groupMap(e.group)}组面(${e.user_detail?.name})`,
       time: transformedTime(
         e.interview_allocations_group!.start,
         e.interview_allocations_group!.end,
@@ -133,7 +133,7 @@ const schedules = computed<Schedule[]>(() => {
 
     const teamObj = {
       date: new Date(e.interview_allocations_team?.date as string),
-      name: `${e.group}群面(${e.user_detail?.name})`,
+      name: `${groupMap(e.group)}群面(${e.user_detail?.name})`,
       time: transformedTime(
         e.interview_allocations_team!.start,
         e.interview_allocations_team!.end,

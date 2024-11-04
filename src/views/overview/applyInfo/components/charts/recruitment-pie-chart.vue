@@ -8,6 +8,7 @@ import useRecruitmentStore from '@/store/modules/recruitment';
 import { groupMapping } from '@/constants/team';
 import { onMounted, ref, onUnmounted, watch, computed } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { groupMap } from '@/utils';
 
 const { t } = useI18n();
 const recStore = useRecruitmentStore();
@@ -58,7 +59,7 @@ const option = computed(() => {
       {
         type: 'pie',
         data: Object.entries(groupMapping).map(([name, group]) =>
-          createDataObject(group, name),
+          createDataObject(group, groupMap(name.toLowerCase())),
         ),
         label: {
           show: true,
