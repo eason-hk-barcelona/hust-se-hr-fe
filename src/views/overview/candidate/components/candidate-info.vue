@@ -93,7 +93,9 @@
     <a-form :model="uploadData" layout="vertical">
       <a-form-item field="group" :label="$t('common.user.group')">
         <a-select v-model="uploadData.group">
-          <a-option v-for="item in groups" :key="item">{{ item }}</a-option>
+          <a-option v-for="item in groups" :key="item">{{
+            groupMap(item)
+          }}</a-option>
         </a-select>
       </a-form-item>
       <a-form-item field="data">
@@ -141,6 +143,7 @@ import TeamGroupRadio from '@/views/components/team-group-radio.vue';
 import { FileItem, Message } from '@arco-design/web-vue';
 import { useI18n } from 'vue-i18n';
 import useWindowResize from '@/hooks/resize';
+import { groupMap } from '@/utils';
 import candidateInfoCard from './candidate-info-card.vue';
 import editButtons from './edit-buttons.vue';
 
@@ -243,8 +246,8 @@ const handleClearSelected = () => {
 
 watch([curStep, currentGroup, recStore], handleClearSelected);
 
-const uploadData = ref<{ group: Ref<Group>; data: FileItem[] }>({
-  group: currentGroup,
+const uploadData = ref<{ group: string; data: FileItem[] }>({
+  group: groupMap(currentGroup.value),
   data: [],
 });
 
@@ -257,7 +260,7 @@ const handleUpload = async (): Promise<boolean> => {
   }
   const res = await recStore.uploadTest(
     recStore.currentRid,
-    uploadData.value.group,
+    currentGroup.value,
     uploadData.value.data[0].file,
   );
   if (!res) return false;
