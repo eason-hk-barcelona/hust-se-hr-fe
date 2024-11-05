@@ -8,6 +8,7 @@ import useRecruitmentStore from '@/store/modules/recruitment';
 import { Step } from '@/constants/team';
 import { watch, onMounted, ref, onUnmounted, computed } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { groupMap } from '@/utils';
 
 const { t } = useI18n();
 const recStore = useRecruitmentStore();
@@ -22,7 +23,7 @@ const resizeChart = () => {
 const props = defineProps({
   curGroup: {
     type: String,
-    default: 'PM',
+    default: '产品',
     required: true,
   },
 });
@@ -30,7 +31,7 @@ const props = defineProps({
 const getStepCounts = computed(() => {
   return (...steps: string[]) => {
     return recStore.curApplications.filter(({ group, step }) => {
-      return group === props.curGroup.toLowerCase() && steps.includes(step);
+      return groupMap(group) === props.curGroup && steps.includes(step);
     }).length;
   };
 });

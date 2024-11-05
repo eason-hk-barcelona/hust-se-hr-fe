@@ -1,7 +1,7 @@
 <template>
   <div class="navbar">
     <div class="left-side">
-      <LogoSVG />
+      <!-- <LogoSVG /> -->
     </div>
     <ul class="right-side">
       <!--选择招新时间下拉栏以及发起招新-->
